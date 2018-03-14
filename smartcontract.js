@@ -34,12 +34,10 @@ function checkContract() {
 
 function uploadHash(){
   let uploadForm = document.forms['upload-form'];
-  console.log(uploadForm);
   let description = uploadForm['description'].value;
   if(hashedFile != 0){
     hashesStocker.methods.uploadHash(hashedFile, description).send({from: web3.eth.defaultAccount}).then(res => {
-      document.getElementById('error-upload').innerHTML = 'L\'upload a réussi : ';
-      console.log("uploaded : " + hashedFile);
+      document.getElementById('error-upload').innerHTML = 'L\'upload a réussi : ' + hashedFile;
     }), err => {    
       document.getElementById('error-upload').innerHTML = 'L\'upload a échoué';
     }
@@ -49,15 +47,13 @@ function uploadHash(){
   }
 }
 
-/* Works properly*/
 function getHash() {
   let retrieveForm = document.forms['retrieve-form'];
   let hash = retrieveForm['hash'].value;
-  console.log(hash)
-  console.log(typeof(hash))
   let resultat;
   hashesStocker.methods.getHash(hash).call().then(res => {
     console.log(res);
+    document.getElementById('result').innerHTML = "Hash : " + res[2] + "<br/>" + "Emitting address : " + res[0] + "<br/>" +"Description : " + res[1];
   });
 }
 
