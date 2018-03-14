@@ -2,6 +2,7 @@ let web3;
 let hashesStocker;
 let hashedFile = 0;
 
+/*Works properly*/
 function checkContract() {
   let confForm = document.forms['conf-form'];
   let address = confForm['network-address'].value || 'http://localhost:8545';
@@ -36,8 +37,9 @@ function uploadHash(){
   console.log(uploadForm);
   let description = uploadForm['description'].value;
   if(hashedFile != 0){
-    hashesStocker.methods.uploadHash(hashedFile, description).call().then(res => {
-      document.getElementById('error-upload').innerHTML = 'L\'upload a réussi : '+ res;
+    hashesStocker.methods.uploadHash(hashedFile, description).send({from: web3.eth.defaultAccount}).then(res => {
+      document.getElementById('error-upload').innerHTML = 'L\'upload a réussi : ';
+      console.log("uploaded : " + hashedFile);
     }), err => {    
       document.getElementById('error-upload').innerHTML = 'L\'upload a échoué';
     }
@@ -47,14 +49,15 @@ function uploadHash(){
   }
 }
 
+/* Works properly*/
 function getHash() {
   let retrieveForm = document.forms['retrieve-form'];
-  let hash = String(retrieveForm['hash'].value);
+  let hash = retrieveForm['hash'].value;
+  console.log(hash)
+  console.log(typeof(hash))
   let resultat;
-  hashesStocker.methods.descriptions(hash).call().then(res => {
-    hashesStocker.methods.senderAddresses(hash).call().then(res2 => {
-      document.getElementById('result').innerHTML = 'File description : ' + res + '<p></p>' + 'Issued by : ' + res2;
-    });
+  hashesStocker.methods.getHash(hash).call().then(res => {
+    console.log(res);
   });
 }
 
@@ -66,8 +69,7 @@ function hashFile(){
   File.addEventListener('change', function() {
     var reader = new FileReader();
     reader.addEventListener('load', function(){
-      hashedFile = "0x" +keccak256(reader.result);
-      console.log(hashedFile);
+      hashedFile = keccak256(reader.result);
     })
     reader.readAsDataURL(File.files[0]);
   });
