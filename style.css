@@ -1,0 +1,16 @@
+.container {
+	border: none;
+}
+
+.s-1 {
+	margin-top: 25px;
+}
+
+h2 {
+	text-align: center;
+}
+
+form {
+	padding-top: 20px;
+	padding-left: 15%;
+}

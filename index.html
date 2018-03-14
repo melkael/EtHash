@@ -15,23 +15,23 @@
 <body>
 	<div class="card step s-1 container">
 		<div class="jumbotron">
-			<h2>Définis le réseau Ethereum et l'adresse du contrat</h2>
+			<h2>Define Ethereum network and contract address</h2>
 			<form name="conf-form">
 				<div class="group">
-					<input type="text" name="network-address" value="http://localhost:7545" required />
+					<input type="text" name="network-address" value="http://127.0.0.1:7545" required />
 					<span class="highlight"></span>
 					<span class="bar"></span>
-					<label>Adresse du réseau Ethereum</label>
+					<label>Network's Address</label>
 				</div>
-				<small class="example">Par défaut c'est souvent <strong>http://localhost:8545</strong></small><br />
+				<small class="example">Default is often <strong>http://localhost:8545</strong></small><br />
 				<div class="group">
 					<input type="text" name="contract-address" required />
 					<span class="highlight"></span>
 					<span class="bar"></span>
-					<label>Adresse du contrat</label>
+					<label>Contract address</label>
 				</div>
-				<small class="example">Exemple <strong>0x0791a2faeca6246a81a0e69ec64fb763963dadd9</strong></small><br />
-				<button onclick="checkContract()" class="btn" type="button"><span>Valider</span></button>
+				<small class="example">Example <strong>0x0791a2faeca6246a81a0e69ec64fb763963dadd9</strong></small><br />
+				<button onclick="checkContract()" class="btn btn-success" type="button"><span>Connect !</span></button>
 				<p id="error-config" class="error"></p>
 			</form>
 		</div>
@@ -39,21 +39,22 @@
 
 	<div class="card step s-2 container">
 		<div class="jumbotron">
-			<h2>Upload le hash de ton fichier !</h2>
+			<h2>Upload your file's hash</h2>
 			<form name="upload-form">
 				<div class="group">
-					<input onclick="hashFile()" type="file" name="File" value="Hash" required />
+					<label class="btn btn-default btn-file">
+						<input onclick="hashFile()" type="file" name="File" value="Hash" required />
+					</label>
 					<span class="highlight"></span>
 					<span class="bar"></span>
-					<label>Hash du fichier</label>
 				</div>
 				<div class="group">
 					<input type="text" name="description" required />
 					<span class="highlight"></span>
 					<span class="bar"></span>
-					<label>Description du fichier correspondant au hash</label>
+					<label>File description</label>
 				</div>
-				<button onclick="uploadHash()" class="btn" type="button"><span>Valider</span></button>
+				<button onclick="uploadHash()" class="btn btn-success" type="button"><span>Upload !</span></button>
 				<p id="error-upload" class="error"></p>
 			</form>
 		</div>
@@ -61,16 +62,16 @@
 
 	<div class="card step s-3 container">
 		<div class="jumbotron">
-			<h2>Récupère les données de ton fichier !</h2>
+			<h2>Retrieve a Hash's datas</h2>
 			<form name="retrieve-form">
 				<div class="group">
 					<input type="text" name="hash" value="1234" required />
 					<span class="highlight"></span>
 					<span class="bar"></span>
-					<label>Hash du fichier</label>
+					<label>File' Hash</label>
 				</div>		
 
-				<button onclick="getHash()" class="btn" type="button"><span>Valider</span></button>
+				<button onclick="getHash()" class="btn btn-success" type="button"><span>Get Datas !</span></button>
 				<p id="error-retrieve" class="error"></p>
 				<p id="result"></p>
 			</form>
