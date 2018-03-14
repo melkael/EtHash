@@ -70,3 +70,21 @@ function hashFile(){
     reader.readAsDataURL(File.files[0]);
   });
 }
+
+$("#setup-btn").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#setup").offset().top
+    }, 2000);
+});
+
+$("#upload-btn").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#upload").offset().top
+    }, 2000);
+});
+
+$("#verify-btn").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#verify").offset().top
+    }, 2000);
+});
