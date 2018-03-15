@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   		<a class="navbar-brand" href="#"> <i class="fab fa-ethereum"></i> EtHash</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     	<span class="navbar-toggler-icon"></span>
@@ -26,8 +26,37 @@
       			<a onclick="toUpload()" class="nav-item nav-link" href="#">Upload Hash</a>
       			<a onclick="toVerify()" class="nav-item nav-link" href="#">Verify Hash</a>
     		</div>
+
+    		<div class="navbar-right nav navbar-nav">
+    			<a class="navbar-brand" href="https://github.com/E-Maxou/hashesStocker"><i id="github" class="fab fa-github-square"></i></a>
+    		</div>
+  		</div>
+	</nav> -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  		<a class="navbar-brand" href="#"><i class="fab fa-ethereum"></i> EtHash</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="navbarText">
+    		<ul class="navbar-nav mr-auto">
+      			<li class="nav-item">
+        			<a onclick="toSetup()" class="nav-item nav-link" href="#">Setup network</a>
+      			</li>
+     			<li class="nav-item">
+        			<a onclick="toUpload()" class="nav-item nav-link" href="#">Upload Hash</a>
+      			</li>
+      			<li class="nav-item">
+        			<a onclick="toVerify()" class="nav-item nav-link" href="#">Verify Hash</a>
+      			</li>
+    		</ul>
+    		<span class="navbar-text">
+      			<a class="navbar-brand" href="https://github.com/E-Maxou/hashesStocker"><i id="github" class="fab fa-github-square"></i></a>
+    		</span>
   		</div>
 	</nav>
+
+
 	<div class="card step s-1 container" id="setup">
 		<div class="jumbotron">
 			<h2>Define Ethereum network and contract address</h2>

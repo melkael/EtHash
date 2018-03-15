@@ -3,7 +3,7 @@
 }
 
 .s-1 {
-	margin-top: 75px;
+	margin-top: 85px;
 }
 
 h2 {
@@ -17,4 +17,14 @@ form {
 
 .btn {
 	margin-top: 15px;
+}
+
+#github {
+    color: darkgray;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
+}
+
+#github:hover {
+	color: gray;
 }
