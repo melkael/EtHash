@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		EtHash | How To
+	</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  		<a class="navbar-brand" href="./index.html"><i class="fab fa-ethereum"></i> EtHash</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="navbarText">
+    		<ul class="navbar-nav mr-auto">
+     			<li class="nav-item">
+      			</li>
+    		</ul>
+    		<span class="navbar-text">
+      			<a class="navbar-brand" href="https://github.com/E-Maxou/hashesStocker"><i id="github" class="fab fa-github-square"></i></a>
+    		</span>
+  		</div>
+	</nav>
+
+	<div class="s-1"></div>	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>How to Use</h1>
+		</div>
+		<div class="jumbotron">
+			<h2>What is EtHash ?</h2>
+			<p>EtHash is a service that enables you to store your file's signatures on the Ethereum Blockchain, allowing your users to get them in a safe and immutable way. This means anyone can download files and ensure they are safe, whoever distributes them. Oh, and the site is fully static, this means no data gets on our servers, enabling a totally trustless functionning. <br/>
+			It's also fully open-source and distributed under GNU GPL license.</p>
+		</div>
+
+		<div class="jumbotron">
+			<h2>Great ! Get me started !</h2>
+			<h3>Connect to an Ethereum network</h3>
+			<p>The first step is to connect to an Ethereum node. EtHash is still in developpement right now, thus we only support use of a local blockchain such as <a href="http://truffleframework.com/ganache/">Ganache</a>.
+			To connect your local blockchain to EtHash, simply start Ganache and copy the URL address in the RPC Server field from Ganache. Then, paste it into the Network's address field.
+
+			<br/>
+			<em>If you want to try this service on a true Ethereum network, we recommend using a testnet such as Rinkeby for now. We will add the support for mainet very soon !</em>
+		</p>
+		</div>
+		<div class="jumbotron">
+			<h3>Deploy the contract!</h3>
+			<p>Great, now that we've got our blockchain up and running, we need to deploy the smart contract. The smart contract is a small programm that runs directly on the Blockchain. It's that little program that will store the datas regarding your hash. The easiest way to deploy a contract at the moment is :
+				<ul>
+					<li>Copy the contracts' code :
+						<code>
+							pragma solidity^0.4.17; <br/>
+							contract hashes {<br/>
+	    						mapping(bytes32 => string) descriptions;<br/>
+							    mapping(bytes32 => address) senderAddresses;<br/>
+								<br/>
+
+<br/>							    function uploadHash(string _hash, string _description) public returns(string){<br/>
+							        bytes32 hashedHash = keccak256(_hash);<br/>
+							        require(bytes(descriptions[hashedHash]).length == 0);<br/>
+							        descriptions[hashedHash] = _description;<br/>
+							        senderAddresses[hashedHash] = msg.sender;<br/>
+							        return _hash;<br/>
+							    }							<br/>
+
+<br/>							    function getHash(string _hash) constant public returns (address, string, bytes32){<br/>
+							        bytes32 hashedHash = keccak256(_hash);<br/>
+							        return (senderAddresses[hashedHash], descriptions[hashedHash], hashedHash);<br/>
+							    }<br/>
+							}<br/>
+</code>
+					</li>
+
+					<li>
+						Paste it in the <a href="https://remix.ethereum.org/">Remix IDE</a>. Remix is an online development environment made for smart contracts.
+					</li>
+					<li>
+						Go to the <em>Run</em> tab and select web3 provider. Then you just need to paste the same URL you copied in Ganache. This let's Remix know where to upload the contract.
+						Then you want to click on the create button. That's it, the contract should be available on the local blockchain. You can copy it's address from remix and paste it in EtHash !
+					</li>
+				</ul>
+			</p>
+		</div>
+		<div class="jumbotron">
+			<h2>Congratulations!</h2>
+			That's it ! Now you can have fun and use the service. A few more things will be coming soon : I'm working on the mainet deployment, as well as a step-by-step tutorial explaining how to build such a service !
+			Also make sure you check my <a href="https://github.com/E-Maxou/EtHash">Github</a> if you're too hyped to wait for the article !
+		</div>
+
+		<div class="jumbotron">
+		<div id="mc_embed_signup" align="center">
+			<form action="https://xyz.us12.list-manage.com/subscribe/post?u=5ad798fc190db239d316e5f2e&amp;id=dc64e1f3c0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			    <div id="mc_embed_signup_scroll">
+				
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email" required style="border-radius: 5px; height: 25px; border: none; margin-right: 20px;">
+			    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5ad798fc190db239d316e5f2e_4e9716ebe3" tabindex="-1" value=""></div>
+			    <input type="submit" value="Keep me updated!" name="subscribe" id="mc-embedded-subscribe" class="button" style="background: #00C851 !important; border-radius: 5px !important; height: 25px; border: none;"></div>
+			</form>
+
+		</div>
+		</div>
+
+<!--End mc_embed_signup-->	
+		</div>
+	</div>
+
+</body>
+</html>

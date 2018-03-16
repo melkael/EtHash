@@ -1,6 +1,5 @@
 pragma solidity^0.4.17;
 
-
 contract hashes {
     mapping(bytes32 => string) descriptions;
     mapping(bytes32 => address) senderAddresses;

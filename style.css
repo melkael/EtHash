@@ -1,9 +1,17 @@
+.inlined{
+	display: inline;
+}
+
 .container {
 	border: none;
 }
 
 .s-1 {
 	margin-top: 85px;
+}
+
+h1 {
+	text-align: center;
 }
 
 h2 {
