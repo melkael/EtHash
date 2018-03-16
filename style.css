@@ -33,6 +33,10 @@ form {
     font-size: 1.5em;
 }
 
+#main-title {
+	padding: 25px;
+}
+
 #github:hover {
 	color: gray;
 }

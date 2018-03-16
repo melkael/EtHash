@@ -14,14 +14,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   		<a class="navbar-brand" href="./index.html"><i class="fab fa-ethereum"></i> EtHash</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
-  		<div class="collapse navbar-collapse" id="navbarText">
-    		<ul class="navbar-nav mr-auto">
-     			<li class="nav-item">
-      			</li>
-    		</ul>
+  		<div id="navbarText">
     		<span class="navbar-text">
       			<a class="navbar-brand" href="https://github.com/E-Maxou/hashesStocker"><i id="github" class="fab fa-github-square"></i></a>
     		</span>
@@ -30,9 +23,7 @@
 
 	<div class="s-1"></div>	
 	<div class="container">
-		<div class="jumbotron">
-			<h1>How to Use</h1>
-		</div>
+		<h1 id='main-title'>How to Use</h1>
 		<div class="jumbotron">
 			<h2>What is EtHash ?</h2>
 			<p>EtHash is a service that enables you to store your file's signatures on the Ethereum Blockchain, allowing your users to get them in a safe and immutable way. This means anyone can download files and ensure they are safe, whoever distributes them. Oh, and the site is fully static, this means no data gets on our servers, enabling a totally trustless functionning. <br/>
@@ -53,7 +44,7 @@
 			<h3>Deploy the contract!</h3>
 			<p>Great, now that we've got our blockchain up and running, we need to deploy the smart contract. The smart contract is a small programm that runs directly on the Blockchain. It's that little program that will store the datas regarding your hash. The easiest way to deploy a contract at the moment is :
 				<ul>
-					<li>Copy the contracts' code :
+					<li>Copy the contracts' code : <br/>
 						<code>
 							pragma solidity^0.4.17; <br/>
 							contract hashes {<br/>
